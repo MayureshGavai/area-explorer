@@ -51,10 +51,14 @@ const PlaceCard = ({place, selected, refProp}) => {
                 {place?.address}
             </div>
 
-            <div className='flex items-start my-2'>
-                <FaPhoneAlt className='mr-2 pt-2' />
-                {place?.phone}
-            </div>
+            {
+                place?.phone?.length>0 && (
+                <div className='flex items-start my-2'>
+                    <FaPhoneAlt className='mr-2 pt-2' />
+                    {place?.phone}
+                </div>
+                )
+            }
 
             <div className='flex justify-between'>
                 <button 
