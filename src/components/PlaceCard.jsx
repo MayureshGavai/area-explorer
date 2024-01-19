@@ -8,7 +8,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 
 const PlaceCard = ({place, selected, refProp}) => {
 
-    if(selected) refProp?.current?.scrollIntoView({behaviour:'smooth', block:'start'})
+    if (selected) refProp?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 
   return (
     <div className='w-full py-2 px-3 rounded-xl border-2'>
@@ -63,12 +63,16 @@ const PlaceCard = ({place, selected, refProp}) => {
                 >
                     Trip Advisor
                 </button>
-                <button 
-                    className='w-full border hover:bg-emerald-600 hover:text-white ml-2 p-2 rounded-full' 
-                    onClick={()=>window.open(place?.website, '_blank')}
-                >
+                {
+                    place?.website?.length > 0 && (
+                    <button 
+                        className='w-full border hover:bg-emerald-600 hover:text-white ml-2 p-2 rounded-full' 
+                        onClick={()=>window.open(place?.website, '_blank')}
+                    >
                     Website
-                </button>
+                    </button>
+                    )
+                }
             </div>
         </div>
     </div>

@@ -12,12 +12,11 @@ const LocationList = ({onLoad, onPlaceChanged ,isLoading, childClicked, places, 
     // const [type, setType] = useState('restaurants');
     // const [rating, setRating] = useState('');
 
-    const [elRefs, setElRefs] = useState([])
+    const [elRefs, setElRefs] = useState([]);   
 
-    useEffect(()=>{
-        const refs = Array(places?.length).fill().map((_,i)=>elRefs[i] || createRef())
-        setElRefs(refs)
-    },[places])
+    useEffect(() => {
+        setElRefs((refs) => Array(places.length).fill().map((_, i) => refs[i] || createRef()));
+      }, [places]);
 
     // const places = [
     //     {name : 'asas'},
